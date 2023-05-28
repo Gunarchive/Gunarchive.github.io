@@ -203,28 +203,7 @@ function Button({ color, children }) {
 Now you might be thinking "isn't this just inline styles with extra steps?", and while we are using inline styles to apply the variable, it doesn't come with the same downsides. For one, there's no specificity issue because we're declaring the property under the `.button` selector in the css file. Secondly, all our styles are co-located, it's just the value of the custom property that's being passed down.
 This also makes it really convenient when working with properties like transforms or clip-paths where you only need to dynamically control one piece of the value
 
-```jsx
-// All we need to pass is the value needed by the transform, rather than
-// polluting our jsx with the full transform in the inline style
-function Button({ offset, children }) {
-  return (
-    <button className="button" style={{ '--offset': '${offset}px' }}>
-      {children}
-    </button>
-  );
-}
-```
 
-```css
-.button {
-  border: 0;
-  padding: 8px 12px;
-  font-size: 14px;
-  color: dimgrey;
-  background-color: whitesmoke;
-  transform: translate3d(0, var(--offset), 0);
-}
-```
 
 There's way more you can do with CSS custom properties, like setting defaults and allowing overrides from the cascade for any components that compose one another to hook into, like a "CSS API". [This article from Lea Verou](https://lea.verou.me/2021/10/custom-properties-with-defaults/) does a great job at explaining this technique.
 
