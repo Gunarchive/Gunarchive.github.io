@@ -201,7 +201,6 @@ function Button({ color, children }) {
 ```
 
 Now you might be thinking "isn't this just inline styles with extra steps?", and while we are using inline styles to apply the variable, it doesn't come with the same downsides. For one, there's no specificity issue because we're declaring the property under the `.button` selector in the css file. Secondly, all our styles are co-located, it's just the value of the custom property that's being passed down.
-
 This also makes it really convenient when working with properties like transforms or clip-paths where you only need to dynamically control one piece of the value
 
 ```jsx
